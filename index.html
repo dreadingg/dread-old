@@ -1702,7 +1702,7 @@ const time = now.toLocaleTimeString();
 const color = getThemeColor();
 ctx.fillStyle = color;
 ctx.globalAlpha = 0.4;
-ctx.font = ${Math.min(canvas.width, canvas.height) * 0.12}px monospace`;
+ctx.font = `${Math.min(canvas.width, canvas.height) * 0.12}px monospace`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 ctx.shadowColor = color;
@@ -1934,7 +1934,7 @@ const idx = Math.floor(spinnerAngle) % 4;
 ctx.globalAlpha = 0.3;
 ctx.fillStyle = color;
 const size = Math.min(canvas.width, canvas.height) * 0.3;
-ctx.font = ``${size}px monospace`;
+ctx.font = `${size}px monospace`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 ctx.shadowColor = color;
@@ -2139,7 +2139,7 @@ const idx = Math.floor(moonPhase) % phases.length;
 ctx.globalAlpha = 0.3;
 ctx.fillStyle = color;
 const size = Math.min(canvas.width, canvas.height) * 0.2;
-ctx.font = ${size}px monospace`;
+ctx.font = `${size}px monospace`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 ctx.shadowColor = color;
@@ -2202,7 +2202,7 @@ const text = bannerText[bannerIdx];
 ctx.globalAlpha = 0.2;
 ctx.fillStyle = color;
 const size = Math.min(canvas.width, canvas.height) * 0.08;
-ctx.font = ``${size}px monospace`;
+ctx.font = `${size}px monospace`;
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 ctx.shadowColor = color;
@@ -2321,8 +2321,7 @@ case 'glow': {
 document.body.style.cursor = 'none';
 const g = document.createElement('div');
 g.className = 'cursor-glow';
-g.style.cssText =
-width:40px;height:40px;background:radial-gradient(circle,${color}44,transparent 70%);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);; document.body.appendChild(g); cursorElements.push(g); document.addEventListener('mousemove', function(e) { g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px'; g.style.opacity = '1'; }); break; } case 'trail': { document.body.style.cursor = 'none'; let pos = []; for (let i = 0; i &lt; 8; i++) { const d = document.createElement('div'); d.className = 'cursor-trail'; d.style.cssText =width:${6 - i * 0.5}px;height:${6 - i * 0.5}px;background:${color}${Math.floor(80 - i * 10).toString(16).padStart(2, '0')};border-radius:50%;position:fixed;pointer-events:none;z-index:9997;transition:all 0.1s ease;; document.body.appendChild(d); cursorElements.push(d); } document.addEventListener('mousemove', function(e) { pos.push({ x: e.clientX, y: e.clientY }); if (pos.length &gt; 8) pos.shift(); cursorElements.forEach((d, i) =&gt; { const p = pos[pos.length - 1 - i]; if (p) { d.style.left = (p.x - parseInt(d.style.width) / 2) + 'px'; d.style.top = (p.y - parseInt(d.style.height) / 2) + 'px'; d.style.opacity = '1'; } }); }); break; } case 'sparkle': { document.body.style.cursor = 'none'; const s = document.createElement('div'); s.className = 'cursor-sparkle'; s.style.cssText =width:20px;height:20px;background:radial-gradient(circle,${color}cc,transparent 70%);border-radius:50%;position:fixed;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);;
+g.style.cssText = `width:40px;height:40px;background:radial-gradient(circle,${color}44,transparent 70%);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);`; document.body.appendChild(g); cursorElements.push(g); document.addEventListener('mousemove', function(e) { g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px'; g.style.opacity = '1'; }); break; } case 'trail': { document.body.style.cursor = 'none'; let pos = []; for (let i = 0; i < 8; i++) { const d = document.createElement('div'); d.className = 'cursor-trail'; d.style.cssText = `width:${6 - i * 0.5}px;height:${6 - i * 0.5}px;background:${color}${Math.floor(80 - i * 10).toString(16).padStart(2, '0')};border-radius:50%;position:fixed;pointer-events:none;z-index:9997;transition:all 0.1s ease;`; document.body.appendChild(d); cursorElements.push(d); } document.addEventListener('mousemove', function(e) { pos.push({ x: e.clientX, y: e.clientY }); if (pos.length > 8) pos.shift(); cursorElements.forEach((d, i) => { const p = pos[pos.length - 1 - i]; if (p) { d.style.left = (p.x - parseInt(d.style.width) / 2) + 'px'; d.style.top = (p.y - parseInt(d.style.height) / 2) + 'px'; d.style.opacity = '1'; } }); }); break; } case 'sparkle': { document.body.style.cursor = 'none'; const s = document.createElement('div'); s.className = 'cursor-sparkle'; s.style.cssText = `width:20px;height:20px;background:radial-gradient(circle,${color}cc,transparent 70%);border-radius:50%;position:fixed;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);`;
 document.body.appendChild(s);
 cursorElements.push(s);
 document.addEventListener('mousemove', function(e) {
@@ -2336,8 +2335,7 @@ case 'ring': {
 document.body.style.cursor = 'none';
 const r = document.createElement('div');
 r.className = 'cursor-glow';
-r.style.cssText =
-width:50px;height:50px;border:2px solid ${color}66;border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);; document.body.appendChild(r); cursorElements.push(r); document.addEventListener('mousemove', function(e) { r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px'; r.style.opacity = '1'; }); break; } case 'cross': document.body.style.cursor = 'crosshair'; break; case 'dot': { document.body.style.cursor = 'none'; const d = document.createElement('div'); d.className = 'cursor-trail'; d.style.cssText =width:6px;height:6px;background:${color};border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);;
+r.style.cssText = `width:50px;height:50px;border:2px solid ${color}66;border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);`; document.body.appendChild(r); cursorElements.push(r); document.addEventListener('mousemove', function(e) { r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px'; r.style.opacity = '1'; }); break; } case 'cross': document.body.style.cursor = 'crosshair'; break; case 'dot': { document.body.style.cursor = 'none'; const d = document.createElement('div'); d.className = 'cursor-trail'; d.style.cssText = `width:6px;height:6px;background:${color};border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);`;
 document.body.appendChild(d);
 cursorElements.push(d);
 document.addEventListener('mousemove', function(e) {
@@ -2349,15 +2347,15 @@ break;
 }
 case 'heart':
 document.body.style.cursor =
-"url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff6b6b" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 12 12, auto";
+`url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff6b6b" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 12 12, auto`;
 break;
 case 'star':
 document.body.style.cursor =
-"url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><polygon fill="%23ffd700" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>') 12 12, auto";
+`url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><polygon fill="%23ffd700" points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>') 12 12, auto`;
 break;
 case 'moon':
 document.body.style.cursor =
-"url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23c0b0e0" d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z"/><path fill="%23c0b0e0" d="M12 4a8 8 0 0 0-8 8a8 8 0 0 0 8 8a8 8 0 0 0 8-8a8 8 0 0 0-8-8Zm0 2a6 6 0 0 1 6 6a6 6 0 0 1-6 6a6 6 0 0 1-6-6a6 6 0 0 1 6-6Z"/></svg>') 12 12, auto";
+`url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23c0b0e0" d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z"/><path fill="%23c0b0e0" d="M12 4a8 8 0 0 0-8 8a8 8 0 0 0 8 8a8 8 0 0 0 8-8a8 8 0 0 0-8-8Zm0 2a6 6 0 0 1 6 6a6 6 0 0 1-6 6a6 6 0 0 1-6-6a6 6 0 0 1 6-6Z"/></svg>') 12 12, auto`;
 break;
 }
 }
@@ -2563,7 +2561,7 @@ const quoteEl = document.getElementById('splashQuote');
 textEl.innerHTML = 'experimental';
 textEl.style.opacity = '1';
 const rq = quotes[Math.floor(Math.random() * quotes.length)];
-quoteEl.innerHTML = rq.attribution ? "${rq.text}" <span class="attribution">— ${rq.attribution}&lt;/span> : rq.text;
+quoteEl.innerHTML = rq.attribution ? `"${rq.text}" <span class="attribution">— ${rq.attribution}</span>` : rq.text;
 quoteEl.classList.remove('show', 'fade-out');
 splash.style.display = 'flex';
 setTimeout(() => {
@@ -2600,7 +2598,7 @@ const quoteEl = document.getElementById('splashQuote');
 textEl.style.opacity = '1';
 quoteEl.classList.remove('show', 'fade-out');
 const rq = quotes[Math.floor(Math.random() * quotes.length)];
-quoteEl.innerHTML = rq.attribution ? "${rq.text}" <span class="attribution">— ${rq.attribution}&lt;/span> : rq.text;
+quoteEl.innerHTML = rq.attribution ? `"${rq.text}" <span class="attribution">— ${rq.attribution}</span>` : rq.text;
 splash.style.display = 'flex';
 setTimeout(() => {
 splash.classList.add('show');
@@ -2666,7 +2664,7 @@ textEl.innerHTML = words.join(' ') + ' <span>' + last + '</span>'; } else { text
 '<span>' + st + '</span>'; }
 textEl.style.opacity = '1';
 const rq = quotes[Math.floor(Math.random() * quotes.length)];
-quoteEl.innerHTML = rq.attribution ? "${rq.text}" <span class="attribution">— ${rq.attribution}&lt;/span> :
+quoteEl.innerHTML = rq.attribution ? `"${rq.text}" <span class="attribution">— ${rq.attribution}</span>` :
 rq.text;
 quoteEl.classList.remove('show', 'fade-out');
 splash.style.display = 'flex';
